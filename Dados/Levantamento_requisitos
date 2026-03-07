@@ -1,0 +1,10 @@
+>> Sistema Organização/Ideias
+-> Cadastro de:
+  1.Pacientes;
+  2.Profissionais
+A unica entidade que terá acesso ao escopo total do sistema serão os Profissionais (Fisioterapeuta).
+O sistema será interno e local no computador do cliente. 
+
+-> ENTIDADES E SUAS ABSTRAÇÕES 
+  # Cliente 
+    
