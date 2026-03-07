@@ -1,0 +1,30 @@
+>> Sistema Organização/Ideias
+-> Cadastro de:
+  1.Pacientes;
+  2.Profissionais
+A unica entidade que terá acesso ao escopo total do sistema serão os Profissionais (Fisioterapeuta).
+O sistema será interno e local no computador do cliente. 
+
+-> ENTIDADES E SUAS ABSTRAÇÕES 
+  # Cliente(id, nome, telefone, data_nascimento, endereço, observações)
+  Obs: As 'Observações' serão anotações do profissional a respeito da evolução de seu paciente.
+  # Profissinal(id, nome, telefone, cargo)
+  # Agenda -> Responsavel por: Adicionar, remover e listar todos os agendamentos
+  # Agendamento(id, id_paciente, id_profissional, data, hora, status, status_pagamento)
+  # Atendimento(id, id_agendamento, id_profissional, descricao, evolucao, data)
+  
+  * Todos os Ids serão gerados automaticamente pelo banco de dados. 
+  * No Atendimento -> Os id de: agendamento e profissional podem ser puxados automaticamente, sem pedir para o usuario digitar. 
+    Assim como a data.
+
+-> PAGAMENTOS E FINCEIRO 
+ * Uma sessão custa R$ 85,00. 
+ * Se o cliente é novo ele paga 50% para agendar e 50% depois
+ * Ele faz pacotes de sessão -> 10 sessões x R$ 85,00 -> Se o paciente pagar completo todas as sessões agendadas desse paciente ficara
+   com os status_pagamento: Pago. 
+
+-> AGENDAMENTOS 
+ * O cliente falou que não precisamos nós preocupar em colocar limitadores de horario entre cada sessão, ele mesmo pode cuidar disso. 
+
+  
+    
