@@ -6,8 +6,7 @@ A unica entidade que terá acesso ao escopo total do sistema serão os Profissio
 O sistema será interno e local no computador do cliente. 
 
 -> ENTIDADES E SUAS ABSTRAÇÕES 
-  # Cliente(id, nome, telefone, data_nascimento, endereço, observações)
-  Obs: As 'Observações' serão anotações do profissional a respeito da evolução de seu paciente.
+  # Cliente(id, nome, telefone, data_nascimento, endereço)
   # Profissinal(id, nome, telefone, cargo)
   # Agenda -> Responsavel por: Adicionar, remover e listar todos os agendamentos
   # Agendamento(id, id_paciente, id_profissional, data, hora, status, status_pagamento)
