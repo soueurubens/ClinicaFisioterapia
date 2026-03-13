@@ -1,8 +1,42 @@
 # Clínica de Fisioterapia 📜
-Bem-vindo ao trabalho de *Engenharia de Software*
+Bem-vindo ao trabalho de *Engenharia de Software*, esse projeto está sendo desenvolvido para a cadeira de 'Engenharia de dados'.
+<details>
+<summary>👥 Equipe de Desenvolvimento</summary>
+
+### 👑 Liderança
+**Project Owner / Líder:** Ruan  
+**Project Manager:** Bruce  
+
+---
+
+### 📊 Análise de Requisitos
+- Erika
+- Rubens
+
+---
+
+### 💻 Desenvolvimento
+- Rubens
+- Pedro
+- Rian
+
+---
+
+### 🎨 Design
+- Saimon
+- Jamy
+- Paulo
+
+---
+
+### 🧪 Engenharia de Qualidade
+- Rian
+- Rubens
+
+</details>
 
 
-## Versão 1.0 - Desenvolvimento 
+### Versão 1.0 - Desenvolvimento 
 - Inicio do Backend
 - Criação da: Formatação, validação de pacientes.
 ### Nota de Atualização Backend - 12/03/2026
