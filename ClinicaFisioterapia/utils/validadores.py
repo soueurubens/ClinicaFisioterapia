@@ -45,6 +45,15 @@ def valida_cargo(cargo_str):
         if cargo.value == cargo_str.capitalize().strip():
             return cargo
     raise ValueError("Cargo inválido")
+def valida_senha(senha):
+    if len(senha.strip()) < 5:
+        raise ValueError("Senha muito pequena.")
+    if len(senha.strip()) > 50:
+        raise ValueError("Senha muito grande.")
+    if " " in senha.strip():
+        raise ValueError("Senha não devo conter espaço.")
+    
+    
 
 # CREFITO VALIDADORES 
 def valida_regiao(regiao):
@@ -66,6 +75,7 @@ def valida_tipo_crefito(tipo):
         raise ValueError("ERRO >> A ocupação deve conter uma letra. Ex: 'F'.")
     return tipo
 
+
 # AGENDAMENTO 
 def valida_status_pagamento(status):
     status = status.lower().strip()
@@ -73,8 +83,6 @@ def valida_status_pagamento(status):
         if status == state.value:
             return state
     raise ValueError("ERRO > Status de pagamento inválido.")
-
-
 def valida_status_agendamento(status):
     status = status.lower().strip()
     for state in status_agendamento:
