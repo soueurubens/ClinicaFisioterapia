@@ -1,24 +1,16 @@
 from models.paciente import Paciente
-from sqlalchemy.exc import IntegrityError
 
 def criar(db, paciente: Paciente):
-    try: 
-        db.add(paciente)
-        db.commit()
-        db.refresh(paciente)
-        return paciente
-
-    except IntegrityError:
-        db.rollback()
-        raise ValueError("Paciente já cadastrado.")
+    db.add(paciente)
+    db.commit()
+    db.refresh(paciente)
+    return paciente
 def busca_por_id(db, idPaciente: int):
-    paciente = db.get(Paciente, idPaciente)
-    return paciente
-def buscar_por_nome(db, nomePaciente: str):
-    paciente = db.query(Paciente).filter(
-        Paciente.nomeCompleto.ilike(f'%{nomePaciente}%')
-        ).first()
-    return paciente
+    return db.get(Paciente, idPaciente)
+def buscar_por_cpf(db, cpf_cliente):
+    return db.query(Paciente).filter_by(cpf=cpf_cliente).first()
+def buscar_por_email(db, email_paciente: str):
+    return db.query(Paciente).filter_by(email=email_paciente).first()
 def deletar(db, paciente: Paciente):
     db.delete(paciente)
     db.commit()

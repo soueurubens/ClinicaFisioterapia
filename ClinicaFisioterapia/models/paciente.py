@@ -6,8 +6,8 @@ class Paciente(Base):
     # Criando os atributos do paciente 
     id = Column(Integer, primary_key=True, autoincrement=True)
     nomeCompleto = Column(String(90), nullable=False)
-    cpf = Column(String(14), unique=True, nullable=False)
-    telefone = Column(String(14), nullable=False)
+    cpf = Column(String(11), unique=True, nullable=False)
+    telefone = Column(String(14), nullable=False, unique=True)
     email = Column(String(50), nullable=False)
-    senha = Column(String(50), nullable=False, unique=True)
+    senha = Column(String(30), nullable=False)
     

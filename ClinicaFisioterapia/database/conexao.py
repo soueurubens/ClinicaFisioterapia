@@ -12,5 +12,5 @@ def get_db():
     db = Session()
     try: 
         yield db
-    except:
+    finally:
         db.close()

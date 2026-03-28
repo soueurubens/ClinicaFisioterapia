@@ -1,6 +1,5 @@
 from enum import Enum
 
-class Cargo(Enum):
-    FISIOTERAPEUTA = "Fisioterapeuta"
-    RECEPCIONISTA = "Recepcionista"
-    ADMIN = "Administrador"
+class CargoEnum(str, Enum):
+    FISIOTERAPEUTA = "fisioterapeuta"
+    ADMIN = "admin"
