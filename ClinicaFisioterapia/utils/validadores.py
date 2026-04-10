@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, time
 from enums.cargo_enum import CargoEnum
 from enums.status_agendamento_enum import status_agendamento
 from enums.status_pagamento_enum import status_pagamento
@@ -111,27 +111,42 @@ def valida_status_pagamento(status):
     status = status.lower().strip()
     for state in status_pagamento:
         if status == state.value:
-            return state
+            return state.value
     raise ValueError("ERRO > Status de pagamento inválido.")
 def valida_status_agendamento(status):
     status = status.lower().strip()
     for state in status_agendamento:
         if status == state.value:
-            return state
+            return state.value
     raise ValueError("ERRO > Status de agendamento inválido.")
 def valida_data(data):
-    if((data[2] != '/') or (data[5] != '/') or (len(data.strip()) != 10)):
-        raise ValueError("Data inválida >> Formtado da data DD/MM/AAAA")
     try:
-        data_convertida = datetime.strptime(data,'%d/%m/%Y')
-        if data_convertida < datetime.now():
-            raise ValueError("Data inválida >> Data no passado")
+        data_convertida = datetime.strptime(data + "/2024", "%d/%m/%Y")
     except ValueError:
-        raise ValueError("Data inválida >> Data inexistente")
-    return data
-def valida_hora(hora_str):
-    try:
-        datetime.strptime(hora_str, '%H:%M')
-        return hora_str
-    except ValueError:
-        raise ValueError("ERRO >> Hora inválida.")
+        raise ValueError("Data inválida >> Dia ou mês inexistente")
+    hoje = datetime.now()
+
+    data_com_ano_atual = datetime.strptime(
+        data + f"/{hoje.year}", "%d/%m/%Y"
+    )
+
+    if data_com_ano_atual.date() < hoje.date():
+        raise ValueError("Data não pode estar no passado!")
+
+    return data  # mantém como string "DD/MM"
+def valida_hora(hora):
+    if isinstance(hora, str):
+        try:
+            hora_obj = datetime.strptime(hora, "%H:%M").time()
+        except ValueError:
+            raise ValueError("ERRO >> Formato inválido. Use HH:MM")
+    else:
+        hora_obj = hora
+
+    if hora_obj > time(22, 0):
+        raise ValueError("Horário não pode ser após 22:00")
+
+    if hora_obj < time(7, 0):
+        raise ValueError("Horário não pode ser antes das 07:00")
+
+    return hora_obj.strftime("%H:%M")

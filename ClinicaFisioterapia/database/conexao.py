@@ -8,9 +8,13 @@ Base = declarative_base()
 Session = sessionmaker(bind=engine)
 
 
+
+
+
+
 def get_db():
     db = Session()
-    try: 
+    try:
         yield db
     finally:
         db.close()
